@@ -1,0 +1,4 @@
+baseURL = "https://java-repeat.github.io"
+languageCode = "en-us"
+title = "Java Repeat"
+theme = "docdock"
