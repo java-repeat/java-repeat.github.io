@@ -35,18 +35,18 @@ home = [ "HTML", "RSS", "JSON"]
 pre = "<h3>More</h3>"
 name = "<i class='fa fa-github'></i> <label>Github repo</label>"
 identifier = "ds"
-url = "https://github.com/vjeantet/hugo-theme-docdock"
+url = "https://github.com/java-repeat/java-repeat"
 weight = 10
 
 [[menu.shortcuts]]
 name = "<i class='fa fa-cloud-download'></i> <label>Download</label>"
-url = "https://github.com/vjeantet/hugo-theme-docdock/archive/master.zip"
+url = "https://search.maven.org/artifact/io.github.java-repeat/repeat"
 weight = 11
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-bookmark'></i> <label>Hugo Documentation</label>"
+name = "<i class='fa fa-bookmark'></i> <label>Javadoc</label>"
 identifier = "hugodoc"
-url = "https://gohugo.io/"
+url = "https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html"
 weight = 20
 
 [[menu.shortcuts]]
