@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  html, body { margin: 0; background: var(--surface); }
+  .cover { position: relative; width: 960px; height: 288px; overflow: hidden; background: var(--surface); }
+  .cover svg { position: absolute; inset: 0; }
+  .ink { fill: var(--surface-inverse); }
+  .orange { fill: var(--brand-orange); }
+  .tint { fill: var(--accent-tint); }
+  .dot { fill: var(--text-inverse); }
+  .hook { fill: none; stroke: var(--brand-orange); stroke-width: var(--space-4); stroke-linecap: round; }
+  .tile { rx: var(--radius-lg); }
+  .text { position: absolute; left: 40px; bottom: 40px; max-width: 440px; }
+  .name { margin: 0; font-family: var(--font-mono); font-weight: 700; font-size: 64px; line-height: .95; color: var(--text); letter-spacing: -1px; white-space: nowrap; }
+  .tag { margin: 16px 0 0; font-family: var(--font-sans); font-size: 14px; line-height: 20px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+    <!--
+      blocks: surface-inverse slab 240×288 (x 480–720); brand-orange 240×176 bleeding top-right; accent-tint 224×96 below it.
+      arrangement: one tall ink slab with two satellites stacked to its right, both bleeding off the right edge.
+      pattern: literal motif — the mark's hook-and-dot, repeated three times on the slab, because the brand IS "repeat".
+      scales: hook stroke space-4 (16px), hook pitch 72px (space-10 + space-6 + space-2), gaps space-4, corners radius-lg.
+    -->
+    <rect class="ink" x="480" y="0" width="240" height="288"/>
+    <rect class="orange tile" x="736" y="-24" width="248" height="200"/>
+    <rect class="tint tile" x="736" y="192" width="248" height="120"/>
+    <g>
+      <path class="hook" d="M560 88V188A28 28 0 0 1 504 188V176"/>
+      <circle class="dot" cx="560" cy="52" r="10"/>
+      <path class="hook" d="M632 88V188A28 28 0 0 1 576 188V176"/>
+      <circle class="dot" cx="632" cy="52" r="10"/>
+      <path class="hook" d="M704 88V188A28 28 0 0 1 648 188V176"/>
+      <circle class="dot" cx="704" cy="52" r="10"/>
+    </g>
+  </svg>
+  <div class="text">
+    <p class="name">java-repeat</p>
+    <p class="tag">Kotlin-style repetition for Java, with support for checked exceptions.</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* java-repeat — generated from tokens.json */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root, [data-theme="light"] {
+  --brand-orange: #F07A1A;
+  --brand-ink: #16181D;
+  --brand-white: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-raised: #F5F5F6;
+  --surface-inverse: #16181D;
+  --text: #16181D;
+  --text-muted: #5E636E;
+  --text-inverse: #FFFFFF;
+  --accent: var(--brand-orange);
+  --on-accent: #16181D;
+  --accent-text: #A84D0B;
+  --accent-tint: #FFF4EA;
+  --border: #D9DBDF;
+  --border-strong: #8A8F99;
+  --focus-ring: #A84D0B;
+}
+
+[data-theme="dark"] {
+  --surface: #16181D;
+  --surface-raised: #20232A;
+  --surface-inverse: #F5F5F6;
+  --text: #FFFFFF;
+  --text-muted: #9BA0AA;
+  --text-inverse: #16181D;
+  --accent-text: #F59A4F;
+  --accent-tint: #3A2614;
+  --border: #2E323A;
+  --border-strong: #6B707B;
+  --focus-ring: #F07A1A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface: #16181D;
+    --surface-raised: #20232A;
+    --surface-inverse: #F5F5F6;
+    --text: #FFFFFF;
+    --text-muted: #9BA0AA;
+    --text-inverse: #16181D;
+    --accent-text: #F59A4F;
+    --accent-tint: #3A2614;
+    --border: #2E323A;
+    --border-strong: #6B707B;
+    --focus-ring: #F07A1A;
+  }
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-10: 40px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 20px;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.display { font-family: var(--font-mono); font-size: 48px; line-height: 52px; font-weight: 700; letter-spacing: -0.5px; }
+.title { font-family: var(--font-mono); font-size: 28px; line-height: 34px; font-weight: 700; }
+.heading { font-family: var(--font-sans); font-size: 20px; line-height: 28px; font-weight: 600; }
+.body { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 400; }
+.small { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 400; }
+.code { font-family: var(--font-mono); font-size: 14px; line-height: 22px; font-weight: 400; }
+.label { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; }
