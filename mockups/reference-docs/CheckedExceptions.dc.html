@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Checked exceptions — java-repeat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#A84D0B}a:hover{color:#16181D}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #A84D0B;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.k{font-weight:700;color:#16181D}.c{color:#5E636E}.s{color:#A84D0B}.n{color:#A84D0B}.t{color:#A84D0B}
+code{font-family:'JetBrains Mono',monospace;font-size:14px;background:#F5F5F6;padding:1px 5px;border-radius:4px}
+</style>
+</helmet>
+<div style="font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; color: #16181D; background: #FFFFFF; font-size: 16px; line-height: 24px">
+
+<header style="border-bottom: 1px solid #D9DBDF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; box-sizing: border-box">
+<a href="Main.dc.html" style="display: flex; align-items: center; min-height: 44px"><img src="/_blob/8c0b39294a2dcfa6eb10008fc543d964" alt="java-repeat" style="height: 28px; width: auto; display: block"></a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 14px; flex-grow: 1">
+<a href="GettingStarted.dc.html" style="color: #16181D; text-decoration: none; padding: 10px 0">Docs</a>
+<a href="ApiRepeat.dc.html" style="color: #16181D; text-decoration: none; padding: 10px 0">API</a>
+<a href="CheckedExceptions.dc.html" aria-current="page" style="color: #16181D; text-decoration: none; padding: 10px 0; font-weight: 600; box-shadow: inset 0 -2px 0 #F07A1A">Guides</a>
+<a href="https://github.com/java-repeat/java-repeat/releases" style="color: #16181D; text-decoration: none; padding: 10px 0">Releases</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<label for="q" class="sr">Search the docs</label>
+<input id="q" type="search" placeholder="Search docs" style="height: 40px; width: 200px; box-sizing: border-box; padding: 0 12px; border: 1px solid #8A8F99; border-radius: 8px; font: inherit; font-size: 14px; color: #16181D; background: #FFFFFF">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; padding: 4px 8px; border-radius: 4px; background: #F5F5F6; border: 1px solid #D9DBDF">v1.0.1</span>
+<a href="https://github.com/java-repeat/java-repeat" style="color: #16181D; font-size: 14px; padding: 10px 0">GitHub</a>
+</div>
+</div>
+</header>
+
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 0 48px">
+
+<nav aria-label="Docs" style="flex: 1 1 220px; max-width: 260px; padding: 32px 0; display: flex; flex-direction: column; gap: 24px; font-size: 14px; line-height: 20px">
+<sc-for list="{{nav}}" as="sec" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; padding: 0 12px 6px">{{sec.name}}</span>
+<sc-for list="{{sec.items}}" as="it" hint-placeholder-count="3">
+<sc-if value="{{it.active}}" hint-placeholder-val="{{false}}">
+<a href="{{it.href}}" aria-current="page" style="display: block; padding: 8px 12px; border-radius: 8px; background: #FFF4EA; color: #16181D; font-weight: 600; text-decoration: none">{{it.title}}</a>
+</sc-if>
+<sc-if value="{{it.idle}}" hint-placeholder-val="{{true}}">
+<a href="{{it.href}}" style="display: block; padding: 8px 12px; border-radius: 8px; color: #16181D; text-decoration: none">{{it.title}}</a>
+</sc-if>
+</sc-for>
+</div>
+</sc-for>
+</nav>
+
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-wrap: wrap; gap: 0 48px">
+<article style="flex: 999 1 480px; min-width: 0; max-width: 760px; padding: 40px 0 64px">
+<p style="margin: 0 0 12px; font-size: 14px; line-height: 20px; color: #5E636E"><a href="CheckedExceptions.dc.html" style="color: #5E636E">Guides</a> / Checked exceptions</p>
+<h1 style="margin: 0 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 28px; line-height: 34px; font-weight: 700">Checked exceptions</h1>
+<p style="margin: 0 0 32px; font-size: 18px; line-height: 28px; color: #5E636E">The action can throw a checked exception. It reaches the caller unchanged, and the loop stops.</p>
+
+<h2 id="why" style="margin: 0 0 12px; font-size: 20px; line-height: 28px; font-weight: 600">Why it matters</h2>
+<p style="margin: 0 0 16px"><code>IntStream.range(0, n).forEach(...)</code> takes an <code>IntConsumer</code>, which cannot throw checked exceptions. The usual workaround wraps and unwraps.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 0 0 32px">
+<div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">STREAMS</span>
+<pre style="margin: 0; padding: 16px 20px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 20px; overflow-x: auto; flex-grow: 1">IntStream.range(<span class="n">0</span>, <span class="n">3</span>).forEach(i -&gt; {
+    <span class="k">try</span> {
+        Files.createFile(path(i));
+    } <span class="k">catch</span> (IOException e) {
+        <span class="k">throw new</span> UncheckedIOException(e);
+    }
+});</pre>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #A84D0B">JAVA-REPEAT</span>
+<pre style="margin: 0; padding: 16px 20px; background: #F5F5F6; border: 1px solid #F07A1A; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 20px; overflow-x: auto; flex-grow: 1">repeat(<span class="n">3</span>, i -&gt; Files.createFile(path(i)));
+<span class="c">// throws IOException</span></pre>
+</div>
+</div>
+
+<h2 id="inference" style="margin: 0 0 12px; font-size: 20px; line-height: 28px; font-weight: 600">How the type is inferred</h2>
+<p style="margin: 0 0 16px"><code>repeat</code> is declared <code>&lt;E extends Throwable&gt; ... throws E</code>. The compiler picks <code>E</code> from what the lambda throws:</p>
+<ul style="margin: 0 0 32px; padding-left: 20px; display: flex; flex-direction: column; gap: 6px">
+<li>Throws nothing checked: <code>E</code> is <code>RuntimeException</code>; nothing to declare.</li>
+<li>Throws one checked type: <code>E</code> is that type, for example <code>IOException</code>.</li>
+<li>Throws several: <code>E</code> is their common supertype, often <code>Exception</code>. Catch inside the action if you need them apart.</li>
+</ul>
+
+<h2 id="stops" style="margin: 0 0 12px; font-size: 20px; line-height: 28px; font-weight: 600">A failure stops the loop</h2>
+<pre style="margin: 0 0 16px; padding: 20px 24px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 22px; overflow-x: auto">repeat(<span class="n">5</span>, i -&gt; {
+    ran.add(i);
+    <span class="k">if</span> (i == <span class="n">1</span>) <span class="k">throw new</span> IOException(<span class="s">"ERROR!"</span>);
+});
+<span class="c">// ran == [0, 1]; the IOException reaches the caller</span></pre>
+<div role="img" aria-label="Iterations 0 and 1 run; iteration 1 throws; iterations 2, 3 and 4 never run" style="margin: 0 0 32px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px">
+<div style="padding: 12px; border-radius: 8px; background: #16181D; color: #FFFFFF; display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 28px; font-weight: 700">0</span><span style="font-size: 13px; line-height: 18px">ran</span></div>
+<div style="padding: 12px; border-radius: 8px; background: #F07A1A; color: #16181D; display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 28px; font-weight: 700">1</span><span style="font-size: 13px; line-height: 18px; font-weight: 600">threw</span></div>
+<div style="padding: 12px; border-radius: 8px; border: 1px dashed #8A8F99; color: #5E636E; display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 28px; font-weight: 700">2</span><span style="font-size: 13px; line-height: 18px">skipped</span></div>
+<div style="padding: 12px; border-radius: 8px; border: 1px dashed #8A8F99; color: #5E636E; display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 28px; font-weight: 700">3</span><span style="font-size: 13px; line-height: 18px">skipped</span></div>
+<div style="padding: 12px; border-radius: 8px; border: 1px dashed #8A8F99; color: #5E636E; display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 28px; font-weight: 700">4</span><span style="font-size: 13px; line-height: 18px">skipped</span></div>
+</div>
+
+<h2 id="continue" style="margin: 0 0 12px; font-size: 20px; line-height: 28px; font-weight: 600">Keep going after a failure</h2>
+<p style="margin: 0 0 16px">To run every iteration regardless, catch inside the action and collect what failed.</p>
+<pre style="margin: 0 0 40px; padding: 20px 24px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 22px; overflow-x: auto">List&lt;IOException&gt; failures = <span class="k">new</span> ArrayList&lt;&gt;();
+repeat(<span class="n">5</span>, i -&gt; {
+    <span class="k">try</span> {
+        Files.createFile(path(i));
+    } <span class="k">catch</span> (IOException e) {
+        failures.add(e);
+    }
+});</pre>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 24px; border-top: 1px solid #D9DBDF">
+<a href="GettingStarted.dc.html" style="display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; border: 1px solid #D9DBDF; border-radius: 8px; text-decoration: none; color: #16181D"><span style="font-size: 12px; line-height: 16px; color: #5E636E">Previous</span><span style="font-weight: 600">Getting started</span></a>
+<a href="Migration.dc.html" style="display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; border: 1px solid #D9DBDF; border-radius: 8px; text-decoration: none; color: #16181D; text-align: right"><span style="font-size: 12px; line-height: 16px; color: #5E636E">Next</span><span style="font-weight: 600">Migrating from 0.x</span></a>
+</div>
+<p style="margin: 24px 0 0; font-size: 14px; line-height: 20px"><a href="https://github.com/java-repeat/java-repeat.github.io">Edit this page on GitHub</a></p>
+</article>
+
+<aside aria-label="On this page" style="flex: 1 1 180px; max-width: 220px; padding: 48px 0; font-size: 14px; line-height: 20px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">ON THIS PAGE</span>
+<a href="#why" style="color: #16181D; text-decoration: none; padding: 4px 0 4px 12px; box-shadow: inset 2px 0 0 #F07A1A">Why it matters</a>
+<a href="#inference" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 12px; box-shadow: inset 1px 0 0 #D9DBDF">How the type is inferred</a>
+<a href="#stops" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 12px; box-shadow: inset 1px 0 0 #D9DBDF">A failure stops the loop</a>
+<a href="#continue" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 12px; box-shadow: inset 1px 0 0 #D9DBDF">Keep going after a failure</a>
+</aside>
+</div>
+</div>
+
+<footer style="border-top: 1px solid #D9DBDF; background: #F5F5F6">
+<div style="max-width: 1280px; margin: 0 auto; padding: 32px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 16px 32px; font-size: 14px; line-height: 20px; color: #5E636E">
+<span style="flex-grow: 1">java-repeat · io.github.java-repeat:repeat</span>
+<a href="https://github.com/java-repeat/java-repeat">GitHub</a>
+<a href="https://search.maven.org/artifact/io.github.java-repeat/repeat">Maven Central</a>
+<a href="https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html">Javadoc</a>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = 'CheckedExceptions.dc.html';
+    const sec = (name, items) => ({ name, items: items.map(([title, href]) => ({ title, href, active: href === active, idle: href !== active })) });
+    return {
+      nav: [
+        sec('START', [['Overview', 'Main.dc.html'], ['Getting started', 'GettingStarted.dc.html']]),
+        sec('GUIDES', [['Checked exceptions', 'CheckedExceptions.dc.html'], ['Migrating from 0.x', 'Migration.dc.html']]),
+        sec('API REFERENCE', [['API reference', 'ApiRepeat.dc.html'], ['Javadoc ↗', 'https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html']]),
+        sec('PROJECT', [['Releases ↗', 'https://github.com/java-repeat/java-repeat/releases'], ['Contributing', 'Sitemap.dc.html'], ['Credits', 'Sitemap.dc.html']])
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

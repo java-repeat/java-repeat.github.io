@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>API reference — java-repeat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#A84D0B}a:hover{color:#16181D}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #A84D0B;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.k{font-weight:700;color:#16181D}.c{color:#5E636E}.s{color:#A84D0B}.n{color:#A84D0B}.t{color:#A84D0B}
+code{font-family:'JetBrains Mono',monospace;font-size:14px;background:#F5F5F6;padding:1px 5px;border-radius:4px}
+td code{font-size:13px}
+</style>
+</helmet>
+<div style="font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; color: #16181D; background: #FFFFFF; font-size: 16px; line-height: 24px">
+
+<header style="border-bottom: 1px solid #D9DBDF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; box-sizing: border-box">
+<a href="Main.dc.html" style="display: flex; align-items: center; min-height: 44px"><img src="/_blob/8c0b39294a2dcfa6eb10008fc543d964" alt="java-repeat" style="height: 28px; width: auto; display: block"></a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 14px; flex-grow: 1">
+<a href="GettingStarted.dc.html" style="color: #16181D; text-decoration: none; padding: 10px 0">Docs</a>
+<a href="ApiRepeat.dc.html" aria-current="page" style="color: #16181D; text-decoration: none; padding: 10px 0; font-weight: 600; box-shadow: inset 0 -2px 0 #F07A1A">API</a>
+<a href="CheckedExceptions.dc.html" style="color: #16181D; text-decoration: none; padding: 10px 0">Guides</a>
+<a href="https://github.com/java-repeat/java-repeat/releases" style="color: #16181D; text-decoration: none; padding: 10px 0">Releases</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<label for="q" class="sr">Search the docs</label>
+<input id="q" type="search" placeholder="Search docs" style="height: 40px; width: 200px; box-sizing: border-box; padding: 0 12px; border: 1px solid #8A8F99; border-radius: 8px; font: inherit; font-size: 14px; color: #16181D; background: #FFFFFF">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; padding: 4px 8px; border-radius: 4px; background: #F5F5F6; border: 1px solid #D9DBDF">v1.0.1</span>
+<a href="https://github.com/java-repeat/java-repeat" style="color: #16181D; font-size: 14px; padding: 10px 0">GitHub</a>
+</div>
+</div>
+</header>
+
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 0 48px">
+
+<nav aria-label="Docs" style="flex: 1 1 220px; max-width: 260px; padding: 32px 0; display: flex; flex-direction: column; gap: 24px; font-size: 14px; line-height: 20px">
+<sc-for list="{{nav}}" as="sec" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; padding: 0 12px 6px">{{sec.name}}</span>
+<sc-for list="{{sec.items}}" as="it" hint-placeholder-count="3">
+<sc-if value="{{it.active}}" hint-placeholder-val="{{false}}">
+<a href="{{it.href}}" aria-current="page" style="display: block; padding: 8px 12px; border-radius: 8px; background: #FFF4EA; color: #16181D; font-weight: 600; text-decoration: none">{{it.title}}</a>
+</sc-if>
+<sc-if value="{{it.idle}}" hint-placeholder-val="{{true}}">
+<a href="{{it.href}}" style="display: block; padding: 8px 12px; border-radius: 8px; color: #16181D; text-decoration: none">{{it.title}}</a>
+</sc-if>
+</sc-for>
+</div>
+</sc-for>
+</nav>
+
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-wrap: wrap; gap: 0 48px">
+<article style="flex: 999 1 480px; min-width: 0; max-width: 760px; padding: 40px 0 64px">
+<p style="margin: 0 0 12px; font-size: 14px; line-height: 20px; color: #5E636E"><a href="Main.dc.html" style="color: #5E636E">Docs</a> / API reference</p>
+<h1 style="margin: 0 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 28px; line-height: 34px; font-weight: 700">API reference</h1>
+<p style="margin: 0 0 24px; font-size: 18px; line-height: 28px; color: #5E636E">Package <code>io.github.repeat</code>: one class, one functional interface. Generated Javadoc for every version is on <a href="https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html">javadoc.io</a>.</p>
+
+<h2 id="summary" style="margin: 0 0 12px; font-size: 20px; line-height: 28px; font-weight: 600">Summary</h2>
+<div style="overflow-x: auto; margin: 0 0 48px; border: 1px solid #D9DBDF; border-radius: 8px">
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; line-height: 20px">
+<thead><tr style="background: #F5F5F6">
+<th scope="col" style="text-align: left; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; border-bottom: 1px solid #D9DBDF">TYPE</th>
+<th scope="col" style="text-align: left; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; border-bottom: 1px solid #D9DBDF">MEMBER</th>
+<th scope="col" style="text-align: left; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; border-bottom: 1px solid #D9DBDF">DESCRIPTION</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="padding: 14px 16px; vertical-align: top; border-bottom: 1px solid #D9DBDF; font-family: 'JetBrains Mono', monospace; font-size: 13px"><a href="#repeat">Repeat</a></td>
+<td style="padding: 14px 16px; vertical-align: top; border-bottom: 1px solid #D9DBDF; font-family: 'JetBrains Mono', monospace; font-size: 13px"><a href="#repeat-method">repeat</a>(int, IndexedAction&lt;E&gt;)</td>
+<td style="padding: 14px 16px; vertical-align: top; border-bottom: 1px solid #D9DBDF">Runs the action <code>times</code> times with the zero-based index.</td>
+</tr>
+<tr>
+<td style="padding: 14px 16px; vertical-align: top; font-family: 'JetBrains Mono', monospace; font-size: 13px"><a href="#indexed-action">IndexedAction&lt;E&gt;</a></td>
+<td style="padding: 14px 16px; vertical-align: top; font-family: 'JetBrains Mono', monospace; font-size: 13px"><a href="#accept">accept</a>(int)</td>
+<td style="padding: 14px 16px; vertical-align: top">The action your lambda implements; may throw <code>E</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<section style="padding-top: 32px; border-top: 1px solid #D9DBDF; margin: 0 0 48px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin: 0 0 12px">
+<h2 id="repeat" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 24px; line-height: 32px; font-weight: 700">Repeat</h2>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; padding: 4px 8px; border-radius: 4px; border: 1px solid #8A8F99">final class</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; padding: 4px 8px; border-radius: 4px; background: #F07A1A; color: #16181D">since 1.0.0</span>
+</div>
+<p style="margin: 0 0 16px">Kotlin-style function for running code multiple times. Designed for static import. Holds only static members; it cannot be instantiated.</p>
+<pre style="margin: 0 0 32px; padding: 20px 24px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 22px; overflow-x: auto"><span class="k">public final class</span> Repeat</pre>
+
+<h3 id="repeat-method" style="margin: 0 0 12px; font-size: 18px; line-height: 26px; font-weight: 600; font-family: 'JetBrains Mono', monospace">repeat</h3>
+<pre style="margin: 0 0 16px; padding: 20px 24px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 22px; overflow-x: auto"><span class="k">public static</span> &lt;<span class="t">E</span> <span class="k">extends</span> Throwable&gt; <span class="k">void</span> repeat(
+        <span class="k">final int</span> times,
+        <span class="k">final</span> IndexedAction&lt;<span class="t">E</span>&gt; action) <span class="k">throws</span> <span class="t">E</span></pre>
+<p style="margin: 0 0 24px">Executes the action the given number of times, passing the zero-based index of each iteration. Like Kotlin's <code>repeat</code>, a zero or negative <code>times</code> runs nothing.</p>
+
+<dl style="margin: 0 0 32px; display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 12px 24px; font-size: 15px; line-height: 22px">
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 22px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">TYPE PARAMETERS</dt>
+<dd style="margin: 0"><code>E</code> — the exception type the action may throw; inferred from the lambda.</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 22px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">PARAMETERS</dt>
+<dd style="margin: 0; display: flex; flex-direction: column; gap: 6px"><span><code>times</code> — the number of times to execute the action</span><span><code>action</code> — the action to execute; receives the index</span></dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 22px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">THROWS</dt>
+<dd style="margin: 0"><code>E</code> — if the action fails; remaining iterations are not executed</dd>
+</dl>
+
+<h4 id="behavior" style="margin: 0 0 12px; font-size: 16px; line-height: 24px; font-weight: 600">Behavior</h4>
+<div style="overflow-x: auto; margin: 0 0 32px; border: 1px solid #D9DBDF; border-radius: 8px">
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; line-height: 20px">
+<thead><tr style="background: #F5F5F6">
+<th scope="col" style="text-align: left; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; border-bottom: 1px solid #D9DBDF">WHEN</th>
+<th scope="col" style="text-align: left; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; border-bottom: 1px solid #D9DBDF">RESULT</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF"><code>times &gt; 0</code></td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF">Calls <code>action.accept(i)</code> for <code>i = 0 … times - 1</code>, in order, on the calling thread.</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF"><code>times &lt;= 0</code></td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF">Does nothing. The action is never called.</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF">action throws at index <code>k</code></td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF">Indexes <code>0 … k</code> ran. The exception propagates unchanged, not wrapped.</td></tr>
+<tr><td style="padding: 12px 16px"><code>action == null</code></td><td style="padding: 12px 16px"><code>NullPointerException</code> on the first iteration; nothing if <code>times &lt;= 0</code>.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4 id="examples" style="margin: 0 0 12px; font-size: 16px; line-height: 24px; font-weight: 600">Examples</h4>
+<pre style="margin: 0 0 16px; padding: 20px 24px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 22px; overflow-x: auto"><span class="k">import static</span> io.github.repeat.Repeat.*;
+
+<span class="c">// method reference: collect the indexes 0, 1, 2</span>
+List&lt;Integer&gt; indexes = <span class="k">new</span> ArrayList&lt;&gt;();
+repeat(<span class="n">3</span>, indexes::add);
+
+<span class="c">// ignore the index</span>
+StringBuilder out = <span class="k">new</span> StringBuilder();
+repeat(<span class="n">2</span>, i -&gt; out.append(<span class="s">"x"</span>));   <span class="c">// "xx"</span></pre>
+<p style="margin: 0; font-size: 14px; line-height: 20px; display: flex; flex-wrap: wrap; gap: 8px 24px"><a href="https://github.com/java-repeat/java-repeat/blob/main/src/main/java/io/github/repeat/Repeat.java">View source</a><a href="https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/Repeat.html">Javadoc: Repeat</a></p>
+</section>
+
+<section style="padding-top: 32px; border-top: 1px solid #D9DBDF; margin: 0 0 48px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin: 0 0 12px">
+<h2 id="indexed-action" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 24px; line-height: 32px; font-weight: 700">IndexedAction&lt;E&gt;</h2>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; padding: 4px 8px; border-radius: 4px; border: 1px solid #8A8F99">functional interface</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; padding: 4px 8px; border-radius: 4px; background: #F07A1A; color: #16181D">since 1.0.0</span>
+</div>
+<p style="margin: 0 0 16px">An action that receives the zero-based index of the current iteration. You rarely name it: a lambda or method reference passed to <code>repeat</code> becomes one.</p>
+<pre style="margin: 0 0 24px; padding: 20px 24px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 22px; overflow-x: auto">@FunctionalInterface
+<span class="k">public interface</span> IndexedAction&lt;<span class="t">E</span> <span class="k">extends</span> Throwable&gt;</pre>
+<dl style="margin: 0 0 32px; display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 12px 24px; font-size: 15px; line-height: 22px">
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 22px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">TYPE PARAMETERS</dt>
+<dd style="margin: 0"><code>E</code> — the exception type <code>accept</code> may throw. For a lambda that throws nothing checked, the compiler infers <code>RuntimeException</code>, so callers declare nothing.</dd>
+</dl>
+
+<h3 id="accept" style="margin: 0 0 12px; font-size: 18px; line-height: 26px; font-weight: 600; font-family: 'JetBrains Mono', monospace">accept</h3>
+<pre style="margin: 0 0 16px; padding: 20px 24px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 22px; overflow-x: auto"><span class="k">void</span> accept(<span class="k">int</span> index) <span class="k">throws</span> <span class="t">E</span></pre>
+<dl style="margin: 0 0 32px; display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 12px 24px; font-size: 15px; line-height: 22px">
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 22px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">PARAMETERS</dt>
+<dd style="margin: 0"><code>index</code> — zero-based index of the current iteration</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 22px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">THROWS</dt>
+<dd style="margin: 0"><code>E</code> — any exception the action raises</dd>
+</dl>
+
+<h4 id="forms" style="margin: 0 0 12px; font-size: 16px; line-height: 24px; font-weight: 600">Ways to write one</h4>
+<div style="overflow-x: auto; margin: 0 0 16px; border: 1px solid #D9DBDF; border-radius: 8px">
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; line-height: 20px">
+<thead><tr style="background: #F5F5F6">
+<th scope="col" style="text-align: left; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; border-bottom: 1px solid #D9DBDF">FORM</th>
+<th scope="col" style="text-align: left; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; border-bottom: 1px solid #D9DBDF">EXAMPLE</th>
+<th scope="col" style="text-align: left; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E; border-bottom: 1px solid #D9DBDF">E IS</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF">Lambda</td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF"><code>i -&gt; log.info("run " + i)</code></td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF"><code>RuntimeException</code></td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF">Method reference</td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF"><code>indexes::add</code></td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF"><code>RuntimeException</code></td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF">Throwing lambda</td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF"><code>i -&gt; Files.delete(paths[i])</code></td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF"><code>IOException</code></td></tr>
+<tr><td style="padding: 12px 16px">Stored in a variable</td><td style="padding: 12px 16px"><code>IndexedAction&lt;IOException&gt; a = i -&gt; ...;</code></td><td style="padding: 12px 16px">as declared</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 20px; display: flex; flex-wrap: wrap; gap: 8px 24px"><a href="https://github.com/java-repeat/java-repeat/blob/main/src/main/java/io/github/repeat/IndexedAction.java">View source</a><a href="https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/IndexedAction.html">Javadoc: IndexedAction</a></p>
+</section>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 24px; border-top: 1px solid #D9DBDF">
+<a href="Migration.dc.html" style="display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; border: 1px solid #D9DBDF; border-radius: 8px; text-decoration: none; color: #16181D"><span style="font-size: 12px; line-height: 16px; color: #5E636E">Previous</span><span style="font-weight: 600">Migrating from 0.x</span></a>
+<a href="https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html" style="display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; border: 1px solid #D9DBDF; border-radius: 8px; text-decoration: none; color: #16181D; text-align: right"><span style="font-size: 12px; line-height: 16px; color: #5E636E">Next</span><span style="font-weight: 600">Javadoc ↗</span></a>
+</div>
+<p style="margin: 24px 0 0; font-size: 14px; line-height: 20px"><a href="https://github.com/java-repeat/java-repeat.github.io">Edit this page on GitHub</a></p>
+</article>
+
+<aside aria-label="On this page" style="flex: 1 1 180px; max-width: 220px; padding: 48px 0; font-size: 14px; line-height: 20px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">ON THIS PAGE</span>
+<a href="#summary" style="color: #16181D; text-decoration: none; padding: 4px 0 4px 12px; box-shadow: inset 2px 0 0 #F07A1A">Summary</a>
+<a href="#repeat" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 12px; box-shadow: inset 1px 0 0 #D9DBDF; font-family: 'JetBrains Mono', monospace; font-size: 13px">Repeat</a>
+<a href="#repeat-method" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 24px; box-shadow: inset 1px 0 0 #D9DBDF; font-family: 'JetBrains Mono', monospace; font-size: 13px">repeat</a>
+<a href="#behavior" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 24px; box-shadow: inset 1px 0 0 #D9DBDF">Behavior</a>
+<a href="#examples" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 24px; box-shadow: inset 1px 0 0 #D9DBDF">Examples</a>
+<a href="#indexed-action" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 12px; box-shadow: inset 1px 0 0 #D9DBDF; font-family: 'JetBrains Mono', monospace; font-size: 13px">IndexedAction</a>
+<a href="#accept" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 24px; box-shadow: inset 1px 0 0 #D9DBDF; font-family: 'JetBrains Mono', monospace; font-size: 13px">accept</a>
+<a href="#forms" style="color: #5E636E; text-decoration: none; padding: 4px 0 4px 24px; box-shadow: inset 1px 0 0 #D9DBDF">Ways to write one</a>
+</aside>
+</div>
+</div>
+
+<footer style="border-top: 1px solid #D9DBDF; background: #F5F5F6">
+<div style="max-width: 1280px; margin: 0 auto; padding: 32px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 16px 32px; font-size: 14px; line-height: 20px; color: #5E636E">
+<span style="flex-grow: 1">java-repeat · io.github.java-repeat:repeat</span>
+<a href="https://github.com/java-repeat/java-repeat">GitHub</a>
+<a href="https://search.maven.org/artifact/io.github.java-repeat/repeat">Maven Central</a>
+<a href="https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html">Javadoc</a>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":3200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = 'ApiRepeat.dc.html';
+    const sec = (name, items) => ({ name, items: items.map(([title, href]) => ({ title, href, active: href === active, idle: href !== active })) });
+    return {
+      nav: [
+        sec('START', [['Overview', 'Main.dc.html'], ['Getting started', 'GettingStarted.dc.html']]),
+        sec('GUIDES', [['Checked exceptions', 'CheckedExceptions.dc.html'], ['Migrating from 0.x', 'Migration.dc.html']]),
+        sec('API REFERENCE', [['API reference', 'ApiRepeat.dc.html'], ['Javadoc ↗', 'https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html']]),
+        sec('PROJECT', [['Releases ↗', 'https://github.com/java-repeat/java-repeat/releases'], ['Contributing', 'Sitemap.dc.html'], ['Credits', 'Sitemap.dc.html']])
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

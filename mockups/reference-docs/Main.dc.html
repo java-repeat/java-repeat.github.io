@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>java-repeat docs home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#A84D0B}a:hover{color:#16181D}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #A84D0B;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.k{font-weight:700;color:#16181D}.c{color:#5E636E}.s{color:#A84D0B}.n{color:#A84D0B}
+</style>
+</helmet>
+<div style="font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; color: #16181D; background: #FFFFFF; font-size: 16px; line-height: 24px">
+
+<header style="border-bottom: 1px solid #D9DBDF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
+<a href="Main.dc.html" style="display: flex; align-items: center; min-height: 44px"><img src="/_blob/8c0b39294a2dcfa6eb10008fc543d964" alt="java-repeat" style="height: 28px; width: auto; display: block"></a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 14px; flex-grow: 1">
+<a href="GettingStarted.dc.html" style="color: #16181D; text-decoration: none; padding: 10px 0">Docs</a>
+<a href="ApiRepeat.dc.html" style="color: #16181D; text-decoration: none; padding: 10px 0">API</a>
+<a href="CheckedExceptions.dc.html" style="color: #16181D; text-decoration: none; padding: 10px 0">Guides</a>
+<a href="https://github.com/java-repeat/java-repeat/releases" style="color: #16181D; text-decoration: none; padding: 10px 0">Releases</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<label for="q" class="sr">Search the docs</label>
+<input id="q" type="search" placeholder="Search docs" style="height: 40px; width: 200px; box-sizing: border-box; padding: 0 12px; border: 1px solid #8A8F99; border-radius: 8px; font: inherit; font-size: 14px; color: #16181D; background: #FFFFFF">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; padding: 4px 8px; border-radius: 4px; background: #F5F5F6; border: 1px solid #D9DBDF">v1.0.1</span>
+<a href="https://github.com/java-repeat/java-repeat" style="color: #16181D; font-size: 14px; padding: 10px 0">GitHub</a>
+</div>
+</div>
+</header>
+
+<main style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
+
+<section style="padding: 72px 0 56px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<h1 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 48px; line-height: 52px; font-weight: 700; letter-spacing: -0.5px">repeat(n, i -&gt; ...)</h1>
+<p style="margin: 0; font-size: 20px; line-height: 28px; color: #5E636E">Kotlin-style repetition for Java, with support for checked exceptions.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="GettingStarted.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 8px; background: #F07A1A; color: #16181D; font-weight: 600; text-decoration: none">Get started</a>
+<a href="ApiRepeat.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid #8A8F99; color: #16181D; font-weight: 600; text-decoration: none">API reference</a>
+</div>
+</div>
+<div style="flex: 1 1 520px; min-width: 0">
+<pre style="margin: 0; padding: 24px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 22px; overflow-x: auto"><span class="k">import static</span> io.github.repeat.Repeat.*;
+
+<span class="c">// run an action n times</span>
+repeat(<span class="n">3</span>, i -&gt; System.out.println(<span class="s">"attempt "</span> + i));
+
+<span class="c">// checked exceptions propagate without wrapping</span>
+repeat(<span class="n">3</span>, i -&gt; Files.createFile(Paths.get(<span class="s">"file-"</span> + i)));
+<span class="c">// throws IOException</span></pre>
+</div>
+</section>
+
+<section aria-labelledby="install" style="padding: 40px 0; border-top: 1px solid #D9DBDF; display: flex; flex-wrap: wrap; gap: 24px 48px">
+<div style="flex: 1 1 280px; min-width: 0">
+<h2 id="install" style="margin: 0 0 8px; font-size: 20px; line-height: 28px; font-weight: 600">Install</h2>
+<p style="margin: 0; color: #5E636E">One dependency, no transitive dependencies. Java 8 or later.</p>
+</div>
+<div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<div role="tablist" aria-label="Build tool" style="display: flex; gap: 4px">
+<button role="tab" aria-selected="true" style="min-height: 36px; padding: 0 14px; border: 1px solid #16181D; border-radius: 8px; background: #16181D; color: #FFFFFF; font: inherit; font-size: 14px">Maven</button>
+<button role="tab" aria-selected="false" style="min-height: 36px; padding: 0 14px; border: 1px solid #D9DBDF; border-radius: 8px; background: #FFFFFF; color: #16181D; font: inherit; font-size: 14px">Gradle</button>
+</div>
+<pre style="margin: 0; padding: 20px 24px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 22px; overflow-x: auto">&lt;dependency&gt;
+  &lt;groupId&gt;io.github.java-repeat&lt;/groupId&gt;
+  &lt;artifactId&gt;repeat&lt;/artifactId&gt;
+  &lt;version&gt;<span class="s">1.0.1</span>&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div>
+</section>
+
+<section aria-labelledby="kotlin" style="padding: 40px 0; border-top: 1px solid #D9DBDF; display: flex; flex-wrap: wrap; gap: 24px 48px">
+<div style="flex: 1 1 280px; min-width: 0">
+<h2 id="kotlin" style="margin: 0 0 8px; font-size: 20px; line-height: 28px; font-weight: 600">If you know Kotlin</h2>
+<p style="margin: 0; color: #5E636E">Same name, same index, same rules. As in Kotlin, a zero or negative count does nothing.</p>
+</div>
+<div style="flex: 2 1 520px; min-width: 0; overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 14px">
+<thead><tr>
+<th scope="col" style="text-align: left; padding: 10px 16px; border-bottom: 1px solid #8A8F99; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">KOTLIN</th>
+<th scope="col" style="text-align: left; padding: 10px 16px; border-bottom: 1px solid #8A8F99; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">JAVA-REPEAT</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF; font-family: 'JetBrains Mono', monospace">repeat(n) { i -&gt; ... }</td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF; font-family: 'JetBrains Mono', monospace">repeat(n, i -&gt; ...)</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF; font-family: 'JetBrains Mono', monospace">repeat(0) { ... }</td><td style="padding: 12px 16px; border-bottom: 1px solid #D9DBDF; font-family: 'JetBrains Mono', monospace">repeat(0, i -&gt; ...)  <span class="c">// no-op</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section aria-labelledby="next" style="padding: 40px 0 72px; border-top: 1px solid #D9DBDF">
+<h2 id="next" style="margin: 0 0 24px; font-size: 20px; line-height: 28px; font-weight: 600">Documentation</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px">
+<sc-for list="{{cards}}" as="card" hint-placeholder-count="6">
+<a href="{{card.href}}" style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border: 1px solid #D9DBDF; border-radius: 8px; text-decoration: none; color: #16181D; min-height: 132px; box-sizing: border-box">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #A84D0B">{{card.kicker}}</span>
+<span style="font-size: 18px; line-height: 26px; font-weight: 600">{{card.title}}</span>
+<span style="font-size: 14px; line-height: 20px; color: #5E636E">{{card.text}}</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+</main>
+
+<footer style="border-top: 1px solid #D9DBDF; background: #F5F5F6">
+<div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; font-size: 14px; line-height: 20px; color: #5E636E">
+<span style="flex-grow: 1">java-repeat · io.github.java-repeat:repeat</span>
+<a href="https://github.com/java-repeat/java-repeat">GitHub</a>
+<a href="https://search.maven.org/artifact/io.github.java-repeat/repeat">Maven Central</a>
+<a href="https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html">Javadoc</a>
+<a href="Sitemap.dc.html">Sitemap</a>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      cards: [
+        { kicker: 'START', title: 'Getting started', text: 'Add the dependency and make your first call.', href: 'GettingStarted.dc.html' },
+        { kicker: 'API', title: 'API reference', text: 'Repeat and IndexedAction: signatures, behavior, examples.', href: 'ApiRepeat.dc.html' },
+        { kicker: 'API', title: 'Javadoc ↗', text: 'Generated Javadoc for every version on javadoc.io.', href: 'https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html' },
+        { kicker: 'GUIDE', title: 'Checked exceptions', text: 'How E is inferred and what happens when an iteration throws.', href: 'CheckedExceptions.dc.html' },
+        { kicker: 'GUIDE', title: 'Migrating from 0.x', text: 'Replace Repeat.of().times(n).repeat(...) with repeat(n, ...).', href: 'Migration.dc.html' },
+        { kicker: 'PROJECT', title: 'Releases ↗', text: 'Versions and release notes on GitHub.', href: 'https://github.com/java-repeat/java-repeat/releases' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

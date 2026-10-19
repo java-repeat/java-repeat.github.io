@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>java-repeat docs sitemap</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#A84D0B}a:hover{color:#16181D}
+a:focus-visible{outline:2px solid #A84D0B;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 1280px; height: 1180px; box-sizing: border-box; padding: 56px 64px; display: flex; flex-direction: column; gap: 32px; font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; color: #16181D; background: #FFFFFF">
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">java-repeat.github.io</span>
+<h1 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 28px; line-height: 34px; font-weight: 700">Sitemap</h1>
+<p style="margin: 0; font-size: 16px; line-height: 24px; color: #5E636E; max-width: 640px">Every page the reference docs need, grouped as they appear in the sidebar. Paths are Hugo content paths.</p>
+</div>
+<div style="display: flex; gap: 20px; font-size: 14px; line-height: 20px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 12px; height: 12px; border-radius: 4px; background: #F07A1A"></span>Designed here</span>
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 12px; height: 12px; border-radius: 4px; border: 1px solid #8A8F99; box-sizing: border-box"></span>Planned</span>
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 12px; height: 12px; border-radius: 4px; background: #D9DBDF"></span>External link</span>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; align-items: start">
+<sc-for list="{{sections}}" as="sec" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="padding: 12px 16px; background: #16181D; color: #FFFFFF; border-radius: 8px; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 16px; line-height: 24px; font-weight: 600">{{sec.name}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #9BA0AA">{{sec.path}}</span>
+</div>
+<sc-for list="{{sec.pages}}" as="p" hint-placeholder-count="3">
+<sc-if value="{{p.designed}}" hint-placeholder-val="{{true}}">
+<div style="padding: 12px 16px; background: #FFF4EA; border: 1px solid #F07A1A; border-radius: 8px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">{{p.title}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #5E636E">{{p.path}}</span>
+<span style="font-size: 13px; line-height: 18px; color: #5E636E">{{p.note}}</span>
+</div>
+</sc-if>
+<sc-if value="{{p.planned}}" hint-placeholder-val="{{false}}">
+<div style="padding: 12px 16px; background: #FFFFFF; border: 1px dashed #8A8F99; border-radius: 8px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">{{p.title}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #5E636E">{{p.path}}</span>
+<span style="font-size: 13px; line-height: 18px; color: #5E636E">{{p.note}}</span>
+</div>
+</sc-if>
+<sc-if value="{{p.external}}" hint-placeholder-val="{{false}}">
+<div style="padding: 12px 16px; background: #F5F5F6; border: 1px solid #D9DBDF; border-radius: 8px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">{{p.title}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #5E636E">{{p.path}}</span>
+<span style="font-size: 13px; line-height: 18px; color: #5E636E">{{p.note}}</span>
+</div>
+</sc-if>
+</sc-for>
+</div>
+</sc-for>
+</div>
+
+<div style="margin-top: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<div style="padding: 20px 24px; border: 1px solid #D9DBDF; border-radius: 8px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">REMOVE FROM THE CURRENT SITE</span>
+<p style="margin: 0; font-size: 14px; line-height: 20px">The docdock theme's demo pages still ship: <code style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: #F5F5F6; padding: 1px 4px; border-radius: 4px">/getting-start/</code>, <code style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: #F5F5F6; padding: 1px 4px; border-radius: 4px">/create-page/</code>, <code style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: #F5F5F6; padding: 1px 4px; border-radius: 4px">/content-organisation/</code>, <code style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: #F5F5F6; padding: 1px 4px; border-radius: 4px">/shortcodes/</code>, <code style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: #F5F5F6; padding: 1px 4px; border-radius: 4px">/showcase/</code>. They describe Hugo, not java-repeat.</p>
+</div>
+<div style="padding: 20px 24px; border: 1px solid #D9DBDF; border-radius: 8px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.4px; color: #5E636E">EVERY PAGE</span>
+<p style="margin: 0; font-size: 14px; line-height: 20px">Header with search and version, sidebar in this order, an on-this-page list, previous / next links, and "Edit this page" pointing at java-repeat/java-repeat.github.io (the current editURL still points at the theme's repo).</p>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const d = (title, path, note) => ({ title, path, note, designed: true });
+    const p = (title, path, note) => ({ title, path, note, planned: true });
+    const x = (title, path, note) => ({ title, path, note, external: true });
+    return {
+      sections: [
+        { name: 'Start', path: '/', pages: [
+          d('Docs home', '/', 'Pitch in one line, the call, install, links into every section.'),
+          d('Getting started', '/getting-started/', 'Maven and Gradle, requirements, first call, what to read next.')
+        ] },
+        { name: 'Guides', path: '/guides/', pages: [
+          d('Checked exceptions', '/guides/checked-exceptions/', 'How E is inferred; failure stops the loop.'),
+          d('Migrating from 0.x', '/guides/migrating-from-0x/', 'Repeat.of().times(n).repeat(...) to repeat(n, ...).'),
+          p('Recipes', '/guides/recipes/', 'Collecting results, building strings, nested repeats, test fixtures.')
+        ] },
+        { name: 'API reference', path: '/api/', pages: [
+          d('API reference', '/api/', 'One page: Repeat.repeat(int, IndexedAction) and IndexedAction.accept(int), with behavior and examples.'),
+          x('Javadoc', 'javadoc.io', 'Generated Javadoc for every release.')
+        ] },
+        { name: 'Project', path: '/project/', pages: [
+          x('Releases', 'github.com/…/releases', 'Versions and release notes on GitHub.'),
+          p('Contributing', '/contributing/', 'Build with ./mvnw verify, tests, release process.'),
+          p('Credits', '/credits/', 'Exists today; restyle to match.'),
+          x('GitHub', 'github.com/java-repeat', 'Source, issues, pull requests.'),
+          x('Maven Central', 'search.maven.org', 'Artifact listing and all versions.')
+        ] },
+        { name: 'Utility', path: '', pages: [
+          d('Search results', '/search/', 'Exists today via docdock; restyled results list.'),
+          p('Not found', '/404.html', 'Short message, search box, link home.')
+        ] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

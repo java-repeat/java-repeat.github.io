@@ -1,0 +1,34 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-10-19T12:00:00Z"},
+  "title": "Java Repeat Reference Docs",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 1280, "h": 1760, "title": "Docs home", "expand": "fill"},
+    "Sitemap.dc.html": {"x": 1360, "y": 0, "w": 1280, "h": 1180, "title": "Sitemap — every page"},
+    "GettingStarted.dc.html": {"x": 2720, "y": 0, "w": 1280, "h": 1980, "title": "Getting started", "expand": "fill"},
+    "ApiRepeat.dc.html": {"x": 0, "y": 2400, "w": 1280, "h": 3200, "title": "API reference", "expand": "fill"},
+    "CheckedExceptions.dc.html": {"x": 0, "y": 6000, "w": 1280, "h": 1860, "title": "Guide — Checked exceptions", "expand": "fill"},
+    "Migration.dc.html": {"x": 1360, "y": 6000, "w": 1280, "h": 1900, "title": "Guide — Migrating from 0.x", "expand": "fill"},
+    "Search.dc.html": {"x": 0, "y": 8300, "w": 1280, "h": 1060, "title": "Search results", "expand": "fill"}
+  },
+  "order": [
+    "Main.dc.html",
+    "Sitemap.dc.html",
+    "GettingStarted.dc.html",
+    "ApiRepeat.dc.html",
+    "CheckedExceptions.dc.html",
+    "Migration.dc.html",
+    "Search.dc.html"
+  ],
+  "notes": {
+    "row1": {"x": 0, "y": -300, "text": "Start here", "kind": "title1", "maxW": 4000},
+    "row2": {"x": 0, "y": 2100, "text": "API reference", "kind": "title1", "maxW": 1280},
+    "row3": {"x": 0, "y": 5700, "text": "Guides", "kind": "title1", "maxW": 2640},
+    "row4": {"x": 0, "y": 8000, "text": "Utility", "kind": "title1", "maxW": 1280}
+  },
+  "designSystems": [
+    {"title": "java-repeat", "namespace": "java-repeat", "artifact": "https://claude.ai/code/artifact/cd257e58-a10b-4ecb-a246-d0341f2c0691", "version": "1792448997-aa9f", "copiedAt": "2026-10-19T12:00:00Z"}
+  ]
+}
