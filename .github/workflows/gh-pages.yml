@@ -8,9 +8,6 @@ on:
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
-  # Sent by java-repeat/java-repeat's release workflow with the new version.
-  repository_dispatch:
-    types: [library-released]
 
 jobs:
   deploy:
@@ -21,12 +18,8 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Resolve latest release
-        env:
-          # Central can take a while to list a new release, so trust the version the release sent.
-          DISPATCHED_VERSION: ${{ github.event.client_payload.version }}
         run: |
-          version="$DISPATCHED_VERSION"
-          [ -n "$version" ] || version=$(curl -fsSL --retry 3 https://repo1.maven.org/maven2/io/github/java-repeat/repeat/maven-metadata.xml \
+          version=$(curl -fsSL --retry 3 https://repo1.maven.org/maven2/io/github/java-repeat/repeat/maven-metadata.xml \
             | sed -n 's:.*<release>\(.*\)</release>.*:\1:p')
           if [ -z "$version" ]; then
             echo "::warning::Could not read the latest release from Maven Central; using the version in config.toml"
