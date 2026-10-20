@@ -1,0 +1,27 @@
+<header class="site-header">
+<div class="wrap{{ if .IsHome }} wrap-narrow{{ end }}">
+<a class="brand" href="{{ "/" | relURL }}">
+<picture>
+<source srcset="{{ "images/wordmark-white.svg" | relURL }}" media="(prefers-color-scheme: dark)">
+<img src="{{ "images/wordmark.svg" | relURL }}" alt="java-repeat" width="128" height="28">
+</picture>
+</a>
+<nav class="primary-nav" aria-label="Primary">
+{{- $page := . }}
+{{- range site.Menus.main }}
+{{- $active := or (eq $page.RelPermalink (.URL | relURL)) (and (eq .Identifier "guides") (eq $page.Section "guides")) }}
+<a href="{{ .URL | relURL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+{{- end }}
+</nav>
+<div class="header-tools">
+{{- if ne .Layout "search" }}
+<form role="search" action="{{ "/search/" | relURL }}" method="get">
+<label for="q" class="sr">Search the docs</label>
+<input id="q" name="q" type="search" placeholder="Search docs">
+</form>
+{{- end }}
+<span class="version">v{{ site.Params.version }}</span>
+<a href="{{ site.Params.github }}">GitHub</a>
+</div>
+</div>
+</header>

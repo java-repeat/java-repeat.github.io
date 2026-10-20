@@ -1,55 +1,84 @@
-baseURL = "/"
+baseURL = "https://java-repeat.github.io/"
 
 languageCode = "en-us"
-title = "Java Repeat"
-theme = "docdock"
-pygmentsCodeFences = true
-pygmentsStyle = "monokailight"
-
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir= false
-enableMissingTranslationPlaceholders = false
+title = "java-repeat"
+enableGitInfo = true
+disableKinds = ["taxonomy", "term"]
 
 [markup]
 [markup.goldmark.renderer]
 unsafe = true
-
-[params]
-editURL = "https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/"
-showVisitedLinks = true # default is false
-themeStyle = "original" # "original" or "flex" # default "flex"
-themeVariant = "" # choose theme variant "green", "gold" , "gray", "blue" (default)
-ordersectionsby = "weight" # ordersectionsby = "title"
-disableHomeIcon = false # default is false
-disableSearch = false # default is false
-disableNavChevron = false # set true to hide next/prev chevron, default is false
-highlightClientSide = false # set true to use highlight.pack.js instead of the default hugo chroma highlighter
-menushortcutsnewtab = false # set true to open shortcuts links to a new tab/window
-enableGitInfo = true
+[markup.highlight]
+noClasses = false
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 4
 
 [outputs]
-home = [ "HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]
 
+[params]
+description = "Kotlin-style repetition for Java, with support for checked exceptions."
+version = "1.0.1"
+coordinates = "io.github.java-repeat:repeat"
+github = "https://github.com/java-repeat/java-repeat"
+releases = "https://github.com/java-repeat/java-repeat/releases"
+issues = "https://github.com/java-repeat/java-repeat/issues"
+maven = "https://search.maven.org/artifact/io.github.java-repeat/repeat"
+javadoc = "https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html"
+editURL = "https://github.com/java-repeat/java-repeat.github.io/edit/main/content/"
 
-[[menu.shortcuts]]
-pre = "<h3>More</h3>"
-name = "<i class='fa fa-github'></i> <label>Github repo</label>"
-identifier = "ds"
-url = "https://github.com/java-repeat/java-repeat"
-weight = 10
+# Sidebar, in order. Previous / next links follow the same order.
+[[params.nav]]
+name = "START"
+[[params.nav.items]]
+title = "Overview"
+url = "/"
+[[params.nav.items]]
+title = "Getting started"
+url = "/getting-started/"
 
-[[menu.shortcuts]]
-name = "<i class='fa fa-cloud-download'></i> <label>Download</label>"
-url = "https://search.maven.org/artifact/io.github.java-repeat/repeat"
-weight = 11
+[[params.nav]]
+name = "GUIDES"
+[[params.nav.items]]
+title = "Checked exceptions"
+url = "/guides/checked-exceptions/"
+[[params.nav.items]]
+title = "Migrating from 0.x"
+url = "/guides/migrating-from-0x/"
 
-[[menu.shortcuts]]
-name = "<i class='fa fa-bookmark'></i> <label>Javadoc</label>"
-identifier = "hugodoc"
+[[params.nav]]
+name = "API REFERENCE"
+[[params.nav.items]]
+title = "API reference"
+url = "/api/"
+[[params.nav.items]]
+title = "Javadoc ↗"
 url = "https://javadoc.io/doc/io.github.java-repeat/repeat/latest/io/github/repeat/package-summary.html"
-weight = 20
 
-[[menu.shortcuts]]
-name = "<i class='fa fa-bullhorn'></i> <label>Credits</label>"
-url = "/credits"
+[[params.nav]]
+name = "PROJECT"
+[[params.nav.items]]
+title = "Releases ↗"
+url = "https://github.com/java-repeat/java-repeat/releases"
+[[params.nav.items]]
+title = "Credits"
+url = "/credits/"
+
+[[menu.main]]
+name = "Docs"
+url = "/getting-started/"
+weight = 10
+[[menu.main]]
+name = "API"
+url = "/api/"
+weight = 20
+[[menu.main]]
+name = "Guides"
+url = "/guides/checked-exceptions/"
+identifier = "guides"
 weight = 30
+[[menu.main]]
+name = "Releases"
+url = "https://github.com/java-repeat/java-repeat/releases"
+weight = 40

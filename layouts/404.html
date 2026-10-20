@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main class="narrow">
+<p class="label">404</p>
+<h1 class="not-found">Page not found</h1>
+<p class="muted">The page you asked for is not here. It may have moved when the docs were reorganized.</p>
+<form class="search-form" role="search" action="{{ "/search/" | relURL }}" method="get">
+<label for="sq" class="label">SEARCH THE DOCS</label>
+<div class="search-row">
+<input id="sq" name="q" type="search">
+<button class="btn btn-primary" type="submit">Search</button>
+</div>
+</form>
+<p><a href="{{ "/" | relURL }}">Go to the docs home</a></p>
+</main>
+{{ end }}

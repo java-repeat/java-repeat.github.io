@@ -1,0 +1,9 @@
+{{- $pages := slice }}
+{{- range where site.Pages "Kind" "in" (slice "page" "section") }}
+{{- if and .Content (ne .Layout "search") }}
+{{- $section := "DOCS" }}
+{{- if eq .Section "guides" }}{{ $section = "GUIDES" }}{{ else if eq .RelPermalink ("/api/" | relURL) }}{{ $section = "API REFERENCE" }}{{ else if eq .RelPermalink ("/credits/" | relURL) }}{{ $section = "PROJECT" }}{{ end }}
+{{- $pages = $pages | append (dict "title" .Title "section" $section "url" .RelPermalink "lede" (.Params.lede | default "" | markdownify | plainify) "content" (.Plain | htmlUnescape)) }}
+{{- end }}
+{{- end }}
+{{- $pages | jsonify -}}

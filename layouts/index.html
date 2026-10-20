@@ -1,0 +1,85 @@
+{{ define "main" }}
+{{- $v := site.Params.version }}
+<main class="wrap wrap-narrow">
+
+<section class="hero">
+<div class="hero-text">
+<h1>repeat(n, i -&gt; ...)</h1>
+<p class="hero-lede">{{ site.Params.description }}</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="{{ "/getting-started/" | relURL }}">Get started</a>
+<a class="btn" href="{{ "/api/" | relURL }}">API reference</a>
+</div>
+</div>
+<div class="hero-code">
+{{ highlight `import static io.github.repeat.Repeat.*;
+
+// run an action n times
+repeat(3, i -> System.out.println("attempt " + i));
+
+// checked exceptions propagate without wrapping
+repeat(3, i -> Files.createFile(Paths.get("file-" + i)));
+// throws IOException` "java" "" }}
+</div>
+</section>
+
+<section class="band" aria-labelledby="install">
+<div class="band-intro">
+<h2 id="install">Install</h2>
+<p>One dependency, no transitive dependencies. Java 8 or later.</p>
+</div>
+<div class="band-body">
+<div class="tabs" role="tablist" aria-label="Build tool">
+<button role="tab" id="tab-maven" aria-controls="panel-maven" aria-selected="true">Maven</button>
+<button role="tab" id="tab-gradle" aria-controls="panel-gradle" aria-selected="false" tabindex="-1">Gradle</button>
+</div>
+<div role="tabpanel" id="panel-maven" aria-labelledby="tab-maven">
+{{ highlight (printf `<dependency>
+  <groupId>io.github.java-repeat</groupId>
+  <artifactId>repeat</artifactId>
+  <version>%s</version>
+</dependency>` $v) "xml" "" }}
+</div>
+<div role="tabpanel" id="panel-gradle" aria-labelledby="tab-gradle" hidden>
+{{ highlight (printf `implementation("%s:%s")` site.Params.coordinates $v) "kotlin" "" }}
+</div>
+</div>
+</section>
+
+<section class="band" aria-labelledby="kotlin">
+<div class="band-intro">
+<h2 id="kotlin">If you know Kotlin</h2>
+<p>Same name, same index, same rules. As in Kotlin, a zero or negative count does nothing.</p>
+</div>
+<div class="band-body">
+<table class="compare">
+<thead><tr><th scope="col">KOTLIN</th><th scope="col">JAVA-REPEAT</th></tr></thead>
+<tbody>
+<tr><td>repeat(n) { i -&gt; ... }</td><td>repeat(n, i -&gt; ...)</td></tr>
+<tr><td>repeat(0) { ... }</td><td>repeat(0, i -&gt; ...)  <span class="muted">// no-op</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="cards-section" aria-labelledby="docs">
+<h2 id="docs">Documentation</h2>
+<div class="cards">
+{{- range .Params.cards }}
+{{- $url := .url }}
+{{- if not (hasPrefix $url "http") }}{{ $url = $url | relURL }}{{ end }}
+<a class="card" href="{{ $url }}">
+<span class="label">{{ .kicker }}</span>
+<span class="card-title">{{ .title }}</span>
+<span class="card-text">{{ .text }}</span>
+</a>
+{{- end }}
+</div>
+</section>
+
+</main>
+{{ end }}
+
+{{ define "scripts" }}
+<script src="{{ "js/tabs.js" | relURL }}" defer></script>
+{{ end }}
