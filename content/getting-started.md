@@ -18,14 +18,14 @@ lede = "Add one dependency, statically import `Repeat.*`, and call `repeat`."
 <dependency>
   <groupId>io.github.java-repeat</groupId>
   <artifactId>repeat</artifactId>
-  <version>1.0.1</version>
+  <version>{{< version >}}</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```kotlin
-implementation("io.github.java-repeat:repeat:1.0.1")
+implementation("io.github.java-repeat:repeat:{{< version >}}")
 ```
 
 ## Your first call {#first-call}

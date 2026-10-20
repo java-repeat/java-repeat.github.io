@@ -16,7 +16,7 @@ Breaking change. The new `repeat` returns `void`; it no longer collects results 
 <span class="step-num">1</span>
 <div class="step-body">
 <p class="step-title">Bump the version</p>
-<pre class="chroma"><code>&lt;version&gt;<del>0.0.9</del> <span class="s">1.0.1</span>&lt;/version&gt;</code></pre>
+<pre class="chroma"><code>&lt;version&gt;<del>0.0.9</del> <span class="s">{{< version >}}</span>&lt;/version&gt;</code></pre>
 </div>
 </li>
 <li>

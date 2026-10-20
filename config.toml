@@ -19,6 +19,7 @@ home = ["HTML", "RSS", "JSON"]
 
 [params]
 description = "Kotlin-style repetition for Java, with support for checked exceptions."
+# Fallback for local builds. CI sets HUGO_PARAMS_VERSION to the latest release on Maven Central.
 version = "1.0.1"
 coordinates = "io.github.java-repeat:repeat"
 github = "https://github.com/java-repeat/java-repeat"
