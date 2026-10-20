@@ -1,0 +1,5 @@
+{{- if and (eq .Section "guides") (not .IsSection) -}}
+{{- with site.GetPage "/guides" }}<a href="{{ .RelPermalink }}">Guides</a>{{ end }} / {{ .Title -}}
+{{- else -}}
+<a href="{{ "/" | relURL }}">Docs</a> / {{ .Params.crumb | default .Title -}}
+{{- end -}}

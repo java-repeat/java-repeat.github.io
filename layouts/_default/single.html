@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="wrap docs">
+{{ partial "sidebar.html" . }}
+<div class="docs-main">
+<article class="article">
+<p class="breadcrumb">{{ partial "breadcrumb.html" . }}</p>
+<h1>{{ .Title }}</h1>
+{{ with .Params.lede }}<p class="lede">{{ . | markdownify }}</p>{{ end }}
+<div class="prose">
+{{ .Content }}
+</div>
+{{ partial "pager.html" . }}
+{{ with .File }}<p class="edit"><a href="{{ site.Params.editURL }}{{ replace .Path "\\" "/" }}">Edit this page on GitHub</a></p>{{ end }}
+</article>
+{{ partial "toc.html" . }}
+</div>
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+<script src="{{ "js/toc.js" | relURL }}" defer></script>
+{{ end }}

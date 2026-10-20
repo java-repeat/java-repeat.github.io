@@ -1,0 +1,19 @@
+{{- /* Previous / next follow the sidebar order in params.nav. */ -}}
+{{- $flat := slice }}
+{{- range site.Params.nav }}{{ range .items }}
+{{- $url := .url }}
+{{- if not (hasPrefix $url "http") }}{{ $url = $url | relURL }}{{ end }}
+{{- $flat = $flat | append (dict "title" (cond (eq .url "/") "Docs home" .title) "url" $url) }}
+{{- end }}{{ end }}
+{{- $index := -1 }}
+{{- range $i, $item := $flat }}{{ if eq $item.url $.RelPermalink }}{{ $index = $i }}{{ end }}{{ end }}
+{{- if ge $index 0 }}
+<nav class="pager" aria-label="Previous and next">
+{{- if gt $index 0 }}{{ with index $flat (sub $index 1) }}
+<a class="prev" href="{{ .url }}"><small>Previous</small><strong>{{ .title }}</strong></a>
+{{- end }}{{ end }}
+{{- if lt $index (sub (len $flat) 1) }}{{ with index $flat (add $index 1) }}
+<a class="next" href="{{ .url }}"><small>Next</small><strong>{{ .title }}</strong></a>
+{{- end }}{{ end }}
+</nav>
+{{- end }}

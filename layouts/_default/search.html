@@ -1,0 +1,24 @@
+{{ define "main" }}
+<main class="narrow">
+<form class="search-form" role="search" action="{{ .RelPermalink }}" method="get">
+<label for="sq" class="label">SEARCH THE DOCS</label>
+<div class="search-row">
+<input id="sq" name="q" type="search" autofocus>
+<button class="btn btn-primary" type="submit">Search</button>
+</div>
+</form>
+
+<p id="search-status" class="search-status" aria-live="polite"></p>
+<ol id="search-results" class="results"></ol>
+
+<div class="panel">
+<p><strong>Not what you need?</strong></p>
+<p class="muted">Browse the <a href="{{ "/api/" | relURL }}">API reference</a>, the <a href="{{ site.Params.javadoc }}">Javadoc</a>, or <a href="{{ site.Params.issues }}">open an issue</a>.</p>
+</div>
+</main>
+{{ end }}
+
+{{ define "scripts" }}
+<script>window.SEARCH_INDEX = {{ "index.json" | relURL }};</script>
+<script src="{{ "js/search.js" | relURL }}" defer></script>
+{{ end }}

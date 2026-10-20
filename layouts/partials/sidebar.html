@@ -1,0 +1,13 @@
+{{- $page := . }}
+<nav class="sidebar" aria-label="Docs">
+{{- range site.Params.nav }}
+<div class="sidebar-group">
+<span class="label">{{ .name }}</span>
+{{- range .items }}
+{{- $url := .url }}
+{{- if not (hasPrefix $url "http") }}{{ $url = $url | relURL }}{{ end }}
+<a href="{{ $url }}"{{ if eq $url $page.RelPermalink }} aria-current="page"{{ end }}>{{ .title }}</a>
+{{- end }}
+</div>
+{{- end }}
+</nav>
